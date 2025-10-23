@@ -1,38 +1,58 @@
-# Sxt Chain Examples
+# Space and Time Chain Examples
 
-SXT Chain Examples
+This repository contains three small demo scripts that show how to interact with the Space and Time network. Each example is available with two signing approaches: native Substrate wallets, and Ethereum-style ECDSA signing.
 
-## 📑 Table of Contents
+## Example
 
-- [🛠️ Installation](#installation)
-- [🚀 Usage](#usage)
-- [🤝 Contributing](#contributing)
-  - [📝 Commit Messages](#commit-messages)
-- [📧 Contact](#contact)
-- [📚 Additional Resources](#additional-resources)
+The repository includes three example flows. Each has a native and an `_ecdsa` variant.
 
-## <a name="installation"></a>🛠️ Installation
+- Hello World (`hello_world.js` and `hello_world_ecdsa.js`)
+  - Submits a `system.remark("Hello World!")` extrinsic.
 
-Provide instructions on how to install or set up the project. Include any dependencies that need to be installed and how to install them.
+- Create Table (`create_table.js`, `create_table_ecdsa.js`)
+  - Creates a table using a CREATE TABLE statement.
 
-## <a name="usage"></a>🚀 Usage
+- Insert Data
+  - Scripts: `insert_data.js`, `insert_data_ecdsa.js`
+  - Builds an Apache Arrow `Table`, converts it to IPC hex, and submits it using `indexing.submitData`.
 
-Explain how to use the project. Provide examples if applicable. This could include command line instructions, code snippets, or screenshots.
+## Prerequisites & installation
 
-## <a name="contributing"></a>🤝 Contributing
+You will need Node.js. These were developed using v25.0.0. Other modern versions will likely work as well.
 
-If you would like others to contribute to your project, provide guidelines for how they can do so. This could include information on how to report bugs, suggest enhancements, or submit pull requests.
+Install dependencies from the project root:
 
-#### <a name="commit-messages"></a>📝 Commit Messages
+```bash
+npm install
+```
 
-Please ensure your commits follow the [Conventional Commit](https://www.conventionalcommits.org/en/v1.0.0/) standards. Doing so allows our CI system to properly categorize changes during the release process.
+## Wallets / Signing
 
-## <a name="contact"></a>📧 Contact
+The examples use two signing modes: native keyfile (Substrate Keyring / sr25519) and ECDSA (ethers Wallet).
 
-For questions on this repository, please reach out to [JayWhite2357](https://github.com/JayWhite2357).
+Create a `.env` file at the project root with the values used by the examples. Example `.env`:
 
-## <a name="additional-resources"></a>📚 Additional Resources
+```env
+# native keyfile
+KEY_JSON_PATH=path/to/account.json
+KEY_PW=your-key-password
 
-- [📋 Changelog](CHANGELOG.md)
-- [📜 License](LICENSE)
-- [👨‍💻 Code Owners](CODEOWNERS)
+# ECDSA
+WALLET_SEED=0x123...456
+```
+
+Run the native examples:
+
+```bash
+node hello_world.js
+node create_table.js
+node insert_data.js
+```
+
+Run the ECDSA examples:
+
+```bash
+node hello_world_ecdsa.js
+node create_table_ecdsa.js
+node insert_data_ecdsa.js
+```
