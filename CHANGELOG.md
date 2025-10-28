@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/spaceandtimefdn/sxt-chain-examples/compare/v0.2.0...v0.3.0) (2025-10-28)
+
+
+### Features
+
+* add hello world tutorial ([b67c767](https://github.com/spaceandtimefdn/sxt-chain-examples/commit/b67c767304972dcfd7d96983f7ec603bf79590c1))
+
+
+
 # [0.2.0](https://github.com/spaceandtimefdn/sxt-chain-examples/compare/v0.1.0...v0.2.0) (2025-10-24)
 
 
