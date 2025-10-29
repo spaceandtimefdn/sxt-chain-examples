@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { Wallet } from "ethers";
-import { signAndSendEthEcdsa } from "../eth_ecdsa.js";
+import { EthEcdsaSigner } from "../lib/ethecdsa_signer.js";
 
 async function main() {
   console.log("Connecting to RPC...");
@@ -34,16 +34,19 @@ async function main() {
   const batchTX = api.tx.utility.batchAll([createNamespaceTX, createTablesTX]);
 
   const wallet = new Wallet(process.env.PRIVATE_KEY);
-
+  const signer = new EthEcdsaSigner(wallet, api);
   console.log("Signing and sending transaction...");
-  const unsub = await signAndSendEthEcdsa(api, batchTX, wallet, async (status) => {
-    if (status.isFinalized) {
-      const header = await api.rpc.chain.getHeader(status.asFinalized);
-      console.log("Finalized in block", header.number.toString());
-      unsub();
-      process.exit(0);
-    }
-  });
+  const unsub = await batchTX.signAndSend(
+    signer.address,
+    { signer },
+    async (status) => {
+      if (status.isFinalized) {
+        console.log("Finalized in block", status.blockNumber.toString());
+        unsub();
+        process.exit(0);
+      }
+    },
+  );
 }
 
 main().catch((e) => {

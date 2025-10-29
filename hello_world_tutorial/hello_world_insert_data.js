@@ -1,9 +1,16 @@
 import "dotenv/config";
 import { ApiPromise, WsProvider } from "@polkadot/api";
-import { u8aToHex } from "@polkadot/util";
+import { u8aToHex, hexToU8a } from "@polkadot/util";
 import { Wallet } from "ethers";
-import { signAndSendEthEcdsa } from "../eth_ecdsa.js";
-import { Table, Int64, Utf8, vectorFromArray, tableToIPC } from "apache-arrow";
+import { EthEcdsaSigner } from "../lib/ethecdsa_signer.js";
+import {
+  Table,
+  Int64,
+  Utf8,
+  vectorFromArray,
+  tableToIPC,
+  Binary,
+} from "apache-arrow";
 
 async function main() {
   console.log("Connecting to RPC...");
@@ -13,8 +20,10 @@ async function main() {
 
   const table = new Table({
     ID: vectorFromArray(
-      [BigInt(1), BigInt(2), BigInt(3), BigInt(4), BigInt(5)],
-      new Int64(),
+      ["0x0001", "0x0002", "0x0003", "0x0004", "0x0005"].map((a) =>
+        hexToU8a(a),
+      ),
+      new Binary(),
     ),
     NAME: vectorFromArray(
       [
@@ -44,16 +53,19 @@ async function main() {
   );
 
   const wallet = new Wallet(process.env.PRIVATE_KEY);
-
+  const signer = new EthEcdsaSigner(wallet, api);
   console.log("Signing and sending transaction...");
-  const unsub = await signAndSendEthEcdsa(api, insertDataTx, wallet, async (status) => {
-    if (status.isFinalized) {
-      const header = await api.rpc.chain.getHeader(status.asFinalized);
-      console.log("Finalized in block", header.number.toString());
-      unsub();
-      process.exit(0);
-    }
-  });
+  const unsub = await insertDataTx.signAndSend(
+    signer.address,
+    { signer },
+    async (status) => {
+      if (status.isFinalized) {
+        console.log("Finalized in block", status.blockNumber.toString());
+        unsub();
+        process.exit(0);
+      }
+    },
+  );
 }
 
 main().catch((e) => {
