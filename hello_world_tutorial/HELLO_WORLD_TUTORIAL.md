@@ -4,8 +4,9 @@ In this tutorial, we will be creating a table on the Space and Time chain using 
 The major steps we will walk through are
 
 1. Funding a wallet with compute credits.
-2. Creating a table on the Space and Time chain.
-3. Inserting data into the new table.
+2. Cloning this repo.
+3. Creating a table on the Space and Time chain.
+4. Inserting data into the new table.
 
 ## Step 1: Funding a wallet
 
@@ -55,15 +56,7 @@ cd hello_world_tutorial
 
 ## Step 3: Creating a table (DDL)
 
-We will write a node script that will create a table for us. This script is named `hello_world_create_table.js`.
-
-We add our private key as an environment variable. We add it to a `.env` file and `import 'dotenv/config';`. The `.env` file looks like this:
-
-```
-PRIVATE_KEY=d157███████████████████████ REDACTED ███████████████████████f415
-```
-
-The `hello_world_create_table.js` script that will create the following table named `HELLO_WORLD`:
+We will write a node script that will create a table for us. This script is named `hello_world_create_table.js`. The table that we will create is the following, which we will name `HELLO_WORLD`:
 
 | `ID` (`BINARY`) | `NAME` (`VARCHAR`) | `LATITUDE` (`BIGINT`) | `LONGITUDE` (`BIGINT`) | `AREA` (`BIGINT`) |
 | --------------- | ------------------ | --------------------- | ---------------------- | ----------------- |
@@ -73,7 +66,7 @@ The `hello_world_create_table.js` script that will create the following table na
 | 4               | Antarctic Desert   | -90                   | 0                      | 14200000          |
 | 5               | Great Barrier Reef | -16                   | 146                    | 344400            |
 
-First, we create a connection with a Space and Time RPC node:
+The first thing we must do in order to create a table is create a connection with a Space and Time RPC node:
 
 ```javascript
 const provider = new WsProvider("wss://rpc.testnet.sxt.network");
@@ -116,14 +109,26 @@ Then, instead of submitting two separate transactions, we opt to batch these int
 const batchTX = api.tx.utility.batchAll([createNamespaceTX, createTablesTX]);
 ```
 
-Finally, we sign and submit the transaction to the Space and Time chain to create the transaction.
+We must sign the transaction. To do this, we add the private key of our `0xABC...123` wallet as an environment variable. We add it to a `.env` file and `import 'dotenv/config';`. The `.env` file looks like this:
+
+```
+PRIVATE_KEY=d157███████████████████████ REDACTED ███████████████████████f415
+```
+
+We can then create a wallet in our script by using the `ethers` package.
 
 ```javascript
 const wallet = new Wallet(process.env.PRIVATE_KEY);
-await signAndSendEthEcdsa(api, batchTX, wallet);
 ```
 
-We run the script with
+Finally, we submit the transaction to the Space and Time chain to create the transaction.
+
+```javascript
+const signer = new EthEcdsaSigner(wallet, api);
+await batchTX.signAndSend(signer.address, { signer });
+```
+
+Now, we run the script with
 
 ```bash
 node hello_world_create_table.js
