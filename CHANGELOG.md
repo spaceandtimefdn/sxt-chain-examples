@@ -1,3 +1,7 @@
+## [0.3.3](https://github.com/spaceandtimefdn/sxt-chain-examples/compare/v0.3.2...v0.3.3) (2025-10-31)
+
+
+
 ## [0.3.2](https://github.com/spaceandtimefdn/sxt-chain-examples/compare/v0.3.1...v0.3.2) (2025-10-29)
 
 
@@ -26,16 +30,6 @@
 ### Features
 
 * add examples for hello world, ddl, and dml ([f64b504](https://github.com/spaceandtimefdn/sxt-chain-examples/commit/f64b504261a4ee770b0dc42b1cb495774eaf1300))
-
-
-
-# [0.1.0](https://github.com/spaceandtimefdn/sxt-chain-examples/compare/10fe113c956b409394571e70f64219b521415663...v0.1.0) (2025-10-23)
-
-
-### Features
-
-* **ci:** Create release job ([10fe113](https://github.com/spaceandtimefdn/sxt-chain-examples/commit/10fe113c956b409394571e70f64219b521415663))
-* Create README ([442baf9](https://github.com/spaceandtimefdn/sxt-chain-examples/commit/442baf9154284774b2ca59914a3d427c06aeda95))
 
 
 
