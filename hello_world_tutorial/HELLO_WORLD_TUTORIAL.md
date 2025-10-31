@@ -14,18 +14,17 @@ In order to interact with the Space and Time chain, we need compute credits. In 
 
 First, we must approve the spend. We call the [`approve`](https://sepolia.etherscan.io/address/0xC768a8F94dcb61a200C9d9B2adbe50B41A80B839#writeContract#F1) function on the SXT contract.
 
-- `spender` is the SXTChainMessaging contract: `0xc2159191D147A8BBD937b0BAbbFF2e47889841AC`.
+- `spender` is the SXTChainFunding contract: `0xA54d8293f60DCaec2Aba7434093E35103586607F`.
 - `value` is the amount we wish to spend. The SXT token has 18 decimals, so 123 SXT must be entered as `123000000000000000000`.
 
 We are using Etherscan, so we do the following:
 
 ![Approve Funds](doc_assets/tutorial_approve.png)
 
-Next, we need to actually fund the wallet. We call the [`fundedMessage`](https://sepolia.etherscan.io/address/0xc2159191D147A8BBD937b0BAbbFF2e47889841AC#writeContract#F1) function on the SXTChainMessaging contract.
+Next, we need to actually fund the wallet. We call the [`fundAddress`](https://sepolia.etherscan.io/address/0xA54d8293f60DCaec2Aba7434093E35103586607F#writeContract#F2) function on the SXTChainFunding contract.
 
-- `body` is the the hex address that we are funding. Importantly, this is required to be 32 bytes. Since our wallet address is only 20 bytes, we must prepend with 24 additional 0s. This means the address should be `0x000000000000000000000000ABC8d709C80262965344f5240Ad123f5cBE51123`.
-- `target` is the SXT Chain address, which is `0xA2B1A10fe54258b5590DB1292173304fc2772eE3`.
-- `amount` is what we entered for `value` above. On our case, `123000000000000000000`.
+- `onBehalfOf` is the the hex address that we are funding.
+- `value` is what we entered for `value` above. On our case, `123000000000000000000`.
 
 As before, on Etherscan, we get:
 
