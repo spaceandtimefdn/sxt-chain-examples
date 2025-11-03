@@ -143,8 +143,8 @@ The data is inserted to the chain as an Apache Arrow table. We build the table a
 ```javascript
 const table = new Table({
   ID: vectorFromArray(
-    [BigInt(1), BigInt(2), BigInt(3), BigInt(4), BigInt(5)],
-    new Int64(),
+    ["0x0001", "0x0002", "0x0003", "0x0004", "0x0005"].map((a) => hexToU8a(a)),
+    new Binary(),
   ),
   NAME: vectorFromArray(
     [
