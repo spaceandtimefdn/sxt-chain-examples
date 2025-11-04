@@ -14,7 +14,7 @@ import {
 
 async function main() {
   console.log("Connecting to RPC...");
-  const provider = new WsProvider("wss://rpc.testnet.sxt.network");
+  const provider = new WsProvider("wss://rpc.mainnet.sxt.network");
   const api = await ApiPromise.create({ provider, noInitWarn: true });
   console.log("Connected to RPC.");
 

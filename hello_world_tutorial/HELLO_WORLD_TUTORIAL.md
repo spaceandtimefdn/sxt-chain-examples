@@ -12,18 +12,18 @@ The major steps we will walk through are
 
 In order to interact with the Space and Time chain, we need compute credits. In this tutorial, we will use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and will be funding our wallet with 123 SXT.
 
-First, we must approve the spend. We call the [`approve`](https://sepolia.etherscan.io/address/0xC768a8F94dcb61a200C9d9B2adbe50B41A80B839#writeContract#F1) function on the SXT contract.
+First, we must approve the spend. We call the [`approve`](https://etherscan.io/address/0xE6Bfd33F52d82Ccb5b37E16D3dD81f9FFDAbB195#writeContract#F1) function on the SXT contract.
 
-- `spender` is the SXTChainFunding contract: `0xA54d8293f60DCaec2Aba7434093E35103586607F`.
+- `spender` is the SXTChainFunding contract: `0x11ABB8625Fa4B40b16417E6FC6dF98A450cc60fa`.
 - `value` is the amount we wish to spend. The SXT token has 18 decimals, so 123 SXT must be entered as `123000000000000000000`.
 
 We are using Etherscan, so we do the following:
 
 ![Approve Funds](doc_assets/tutorial_approve.png)
 
-Next, we need to actually fund the wallet. We call the [`fundAddress`](https://sepolia.etherscan.io/address/0xA54d8293f60DCaec2Aba7434093E35103586607F#writeContract#F2) function on the SXTChainFunding contract.
+Next, we need to actually fund the wallet. We call the [`fundAddress`](https://etherscan.io/address/0x11ABB8625Fa4B40b16417E6FC6dF98A450cc60fa#writeContract#F2) function on the SXTChainFunding contract.
 
-- `onBehalfOf` is the the hex address that we are funding.
+- `onBehalfOf` is the the hex address that we are funding: `0xABC8d709C80262965344f5240Ad123f5cBE51123`.
 - `value` is what we entered for `value` above. On our case, `123000000000000000000`.
 
 As before, on Etherscan, we get:
