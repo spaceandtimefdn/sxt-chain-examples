@@ -14,14 +14,14 @@ In order to interact with the Space and Time chain, we need compute credits. In 
 
 First, we must approve the spend. We call the [`approve`](https://etherscan.io/address/0xE6Bfd33F52d82Ccb5b37E16D3dD81f9FFDAbB195#writeContract#F1) function on the SXT contract.
 
-- `spender` is the SXTChainFunding contract: `0x11ABB8625Fa4B40b16417E6FC6dF98A450cc60fa`.
+- `spender` is the SXTChainFunding contract: `0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199`.
 - `value` is the amount we wish to spend. The SXT token has 18 decimals, so 123 SXT must be entered as `123000000000000000000`.
 
 We are using Etherscan, so we do the following:
 
 ![Approve Funds](doc_assets/tutorial_approve.png)
 
-Next, we need to actually fund the wallet. We call the [`fundAddress`](https://etherscan.io/address/0x11ABB8625Fa4B40b16417E6FC6dF98A450cc60fa#writeContract#F2) function on the SXTChainFunding contract.
+Next, we need to actually fund the wallet. We call the [`fundAddress`](https://etherscan.io/address/0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199#writeContract#F2) function on the SXTChainFunding contract.
 
 - `onBehalfOf` is the the hex address that we are funding: `0xABC8d709C80262965344f5240Ad123f5cBE51123`.
 - `value` is what we entered for `value` above. On our case, `123000000000000000000`.
