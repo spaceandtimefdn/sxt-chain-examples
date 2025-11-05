@@ -1,0 +1,13 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["dependencies"]
+
+[fs_permissions]
+read = ["./dependencies/sxt-proof-of-sql-contracts-0.2.1/config"]
+
+[dependencies]
+forge-std = "1.9.7"
+"@openzeppelin-contracts" = "5.2.0"
+sxt-proof-of-sql-contracts = { version = "0.2.1", url = "https://github.com/spaceandtimefdn/sxt-proof-of-sql-contracts/releases/download/v0.2.1/posql-contracts.zip"}
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
