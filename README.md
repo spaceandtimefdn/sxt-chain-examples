@@ -4,7 +4,7 @@ This repository contains examples and guides for how to interact with the Space 
 
 ## Tutorials
 
-- [Hello World Tutorial](./hello_world_tutorial/HELLO_WORLD_TUTORIAL.md)
+- [Hello World Tutorial](./tutorials/hello_world_tutorial/HELLO_WORLD_TUTORIAL.md)
 - [Community Tables Tutorial](./tutorials/community_tutorial/COMMUNITY_TABLE_TUTORIAL.md)
 - [Public Tables Tutorial](./tutorials/public_tutorial/PUBLIC_PERMISSIONLESS_TUTORIAL.md)
 
