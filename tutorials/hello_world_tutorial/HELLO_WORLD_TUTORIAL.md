@@ -19,7 +19,7 @@ First, we must approve the spend. We call the [`approve`](https://etherscan.io/a
 
 We are using Etherscan, so we do the following:
 
-![Approve Funds](doc_assets/tutorial_approve.png)
+![Approve Funds](../doc_assets/tutorial_approve.png)
 
 Next, we need to actually fund the wallet. We call the [`fundAddress`](https://etherscan.io/address/0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199#writeContract#F2) function on the SXTChainFunding contract.
 
@@ -28,7 +28,7 @@ Next, we need to actually fund the wallet. We call the [`fundAddress`](https://e
 
 As before, on Etherscan, we get:
 
-![Send Funds](doc_assets/tutorial_funded_message.png)
+![Send Funds](../doc_assets/tutorial_funded_message.png)
 
 ## Step 2: Clone this repo
 
@@ -68,7 +68,7 @@ We will write a node script that will create a table for us. This script is name
 The first thing we must do in order to create a table is create a connection with a Space and Time RPC node:
 
 ```javascript
-const provider = new WsProvider("wss://rpc.testnet.sxt.network");
+const provider = new WsProvider("wss://rpc.mainnet.sxt.network");
 const api = await ApiPromise.create({ provider, noInitWarn: true });
 ```
 
