@@ -1,4 +1,4 @@
-# Hello World Tutorial
+# Hello World Tutorial (Creating a Table)
 
 In this tutorial, we will be creating a table on the Space and Time chain using an ECDSA wallet.
 The major steps we will walk through are

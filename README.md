@@ -4,7 +4,7 @@ This repository contains examples and guides for how to interact with the Space 
 
 ## Tutorials
 
-- [Hello World Tutorial](./hello_world_tutorial/HELLO_WORLD_TUTORIAL.md)
+- [Hello World - Create Table](./tutorials/create_hello_world_table/)
 
 ## How-To Guides
 

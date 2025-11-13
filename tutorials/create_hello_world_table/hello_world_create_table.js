@@ -1,7 +1,7 @@
 import "dotenv/config";
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { Wallet } from "ethers";
-import { EthEcdsaSigner } from "../lib/ethecdsa_signer.js";
+import { EthEcdsaSigner } from "../../lib/ethecdsa_signer.js";
 
 async function main() {
   console.log("Connecting to RPC...");
