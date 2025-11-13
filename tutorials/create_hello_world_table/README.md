@@ -8,6 +8,7 @@ The major steps we will walk through are
 3. Creating a table on the Space and Time chain.
 4. Inserting data into the new table.
 5. Running a query with the [Dreamspace Data Studio](https://dreamspace.xyz/queries/new).
+6. Doing the ["Onchain Query Hello World Tutorial"](../onchain_hello_world_query/).
 
 ## Step 1: Funding a wallet
 
@@ -176,3 +177,6 @@ We can go to the [Dreamspace Data Studio](https://dreamspace.xyz/queries/new) to
 
 ![Dreamspace Data Studio](./doc_assets/dreamspace_data_studio.png)
 
+## Step 6: Running an onchain query (DQL)
+
+See the ["Onchain Query Hello World Tutorial"](../onchain_hello_world_query/) for a tutorial.

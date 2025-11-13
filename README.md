@@ -4,7 +4,10 @@ This repository contains examples and guides for how to interact with the Space 
 
 ## Tutorials
 
+There are currently two tutorials, both "Hello World" style. We recommend doing the "Create Table" tutorial first since the "Onchain Query" is querying the table created in the "Create Table" tutorial.
+
 - [Hello World - Create Table](./tutorials/create_hello_world_table/)
+- [Hello World - Onchain Query](./tutorials/onchain_hello_world_query/)
 
 ## How-To Guides
 
