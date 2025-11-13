@@ -1,10 +1,13 @@
-# Space and Time Chain Examples
+# Space and Time (SXT Chain) Developer Kit
 
-This repository contains examples and guides for how to interact with the Space and Time Chain.
+This repository contains examples and guides for how to interact with Space and Time: the data blockchain securing onchain finance. You can use Space and Time to create tables of offchain data, run queries against your offchain data and indexed data from Ethereum, and ZK-prove the result back to a smart contract.
 
 ## Tutorials
 
-- [Hello World Tutorial](./hello_world_tutorial/HELLO_WORLD_TUTORIAL.md)
+There are currently two tutorials, both "Hello World" style. We recommend doing the "Create Table" tutorial first since the "Onchain Query" is querying the table created in the "Create Table" tutorial.
+
+- [Hello World - Create Table](./tutorials/create_hello_world_table/)
+- [Hello World - Onchain Query](./tutorials/onchain_hello_world_query/)
 
 ## How-To Guides
 

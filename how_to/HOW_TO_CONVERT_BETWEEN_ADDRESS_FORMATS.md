@@ -1,11 +1,13 @@
 # How to convert between address formats
 
 There are 3 main wallet address formats:
-* SS58 - native Space and Time Chain wallet address
-* 20 byte hex - 40 charater hex Ethereum-style ECDSA address
-* 32 byte hex
+
+- SS58 - native SXT Chain wallet address
+- 20 byte hex - 40 charater hex Ethereum-style ECDSA address
+- 32 byte hex
 
 In order to use the native wallet, we recommend using one the following
+
 - [Talisman](https://talisman.xyz/)
 - [Polkadot Developer Signer](https://polkadot.js.org/extension/)
 - [SubWallet](https://www.subwallet.app/)
@@ -25,6 +27,7 @@ Not every 32 byte hex address can be converted to a 20 byte hex address, since n
 - Option 3: use the [Subscan](https://sxt.subscan.io/tools/format_transform) utility for converting addresses.
 
 Using `subkey` on the SS58 address `5DtfCxBg5RnhGBYKxS15q3MtCYbpvam2cjnbG8kyphGhYXmn` gives the following:
+
 ```bash
 $ subkey inspect 5DtfCxBg5RnhGBYKxS15q3MtCYbpvam2cjnbG8kyphGhYXmn
 Public Key URI `5DtfCxBg5RnhGBYKxS15q3MtCYbpvam2cjnbG8kyphGhYXmn` is account:
@@ -43,6 +46,7 @@ You can read off the 32 byte hex address: `0x50cf17598eac69c4b16c4789e1f51e73834
 - Option 2: use the [Subscan](https://sxt.subscan.io/tools/format_transform) utility for converting addresses.
 
 Using `subkey` on the SS58 address `0x50cf17598eac69c4b16c4789e1f51e73834fcb7ef7c03743ae035b475637524b` gives the following:
+
 ```bash
 $ subkey inspect --public 0x50cf17598eac69c4b16c4789e1f51e73834fcb7ef7c03743ae035b475637524b
 Network ID/Version: substrate

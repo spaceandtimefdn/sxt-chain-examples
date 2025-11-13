@@ -2,7 +2,7 @@ import "dotenv/config";
 import { ApiPromise, WsProvider } from "@polkadot/api";
 import { u8aToHex, hexToU8a } from "@polkadot/util";
 import { Wallet } from "ethers";
-import { EthEcdsaSigner } from "../lib/ethecdsa_signer.js";
+import { EthEcdsaSigner } from "../../lib/ethecdsa_signer.js";
 import {
   Table,
   Int64,
