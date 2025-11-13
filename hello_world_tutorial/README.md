@@ -7,6 +7,7 @@ The major steps we will walk through are
 2. Cloning this repo.
 3. Creating a table on the Space and Time chain.
 4. Inserting data into the new table.
+5. Running a query with the [Dreamspace Data Studio](https://dreamspace.xyz/queries/new).
 
 ## Step 1: Funding a wallet
 
@@ -168,3 +169,10 @@ node hello_world_insert_data.js
 ```
 
 We have now created a table, and inserted data!
+
+## Step 5: Running a query (DQL)
+
+We can go to the [Dreamspace Data Studio](https://dreamspace.xyz/queries/new) to see the newly created table and run queries. We must select "Indexed on SXT Chain (Mainnet)" in order to query this table.
+
+![Dreamspace Data Studio](./doc_assets/dreamspace_data_studio.png)
+
