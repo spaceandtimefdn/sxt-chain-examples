@@ -1,6 +1,6 @@
 # How to Fund an Account Directly
 
-In order to use the Space and Time chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the SXTChainFunding smart contract (`0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199`). Alternatively, see ["How To Fund an Account with Dreamspace Pay"](./HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md).
+In order to use the SXT Chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the SXTChainFunding smart contract (`0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199`). Alternatively, see ["How To Fund an Account with Dreamspace Pay"](./HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md).
 
 ## Step 1: Approve Spend
 

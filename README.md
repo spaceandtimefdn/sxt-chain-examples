@@ -1,6 +1,6 @@
-# Space and Time Chain Examples
+# Space and Time (SXT Chain) Developer Kit
 
-This repository contains examples and guides for how to interact with the Space and Time Chain.
+This repository contains examples and guides for how to interact with Space and Time: the data blockchain securing onchain finance. You can use Space and Time to create tables of offchain data, run queries against your offchain data and indexed data from Ethereum, and ZK-prove the result back to a smart contract.
 
 ## Tutorials
 

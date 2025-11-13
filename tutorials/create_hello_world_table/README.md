@@ -1,18 +1,18 @@
 # Hello World Tutorial (Creating a Table)
 
-In this tutorial, we will be creating a table on the Space and Time chain using an ECDSA wallet.
+In this tutorial, we will be creating a table on the SXT Chain using an ECDSA wallet.
 The major steps we will walk through are
 
 1. Funding a wallet with compute credits.
 2. Cloning this repo.
-3. Creating a table on the Space and Time chain.
+3. Creating a table on the SXT Chain.
 4. Inserting data into the new table.
 5. Running a query with the [Dreamspace Data Studio](https://dreamspace.xyz/queries/new).
 6. Doing the ["Onchain Query Hello World Tutorial"](../onchain_hello_world_query/).
 
 ## Step 1: Funding a wallet
 
-In order to interact with the Space and Time chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["How to Fund an Account Directly"](../how_to/HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md) or ["How To Fund an Account with Dreamspace Pay"](../how_to/HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md) for instructions.
+In order to interact with the SXT Chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["How to Fund an Account Directly"](../how_to/HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md) or ["How To Fund an Account with Dreamspace Pay"](../how_to/HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md) for instructions.
 
 ## Step 2: Clone this repo
 
@@ -104,7 +104,7 @@ We can then create a wallet in our script by using the `ethers` package.
 const wallet = new Wallet(process.env.PRIVATE_KEY);
 ```
 
-Finally, we submit the transaction to the Space and Time chain to create the transaction.
+Finally, we submit the transaction to the SXT Chain to create the transaction.
 
 ```javascript
 const signer = new EthEcdsaSigner(wallet, api);
