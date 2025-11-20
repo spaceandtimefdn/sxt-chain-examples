@@ -1,6 +1,6 @@
 # Hello World Tutorial (Onchain Query with Proof of SQL)
 
-In this tutorial, we will be running an onchain query against the table created in the ["Create Table Hello World Tutorial"](../create_hello_world_table/). This query uses Proof of SQL, a cryptographic protocol that gives smart contracts a guarantee of the correctness of the query result.
+In this tutorial, we will be running an onchain query against the table created in the ["Create Table Hello World Tutorial"](../create_hello_world_table/README.md). This query uses Proof of SQL, a cryptographic protocol that gives smart contracts a guarantee of the correctness of the query result.
 
 The major steps we will walk through are
 
