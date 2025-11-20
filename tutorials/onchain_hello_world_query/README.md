@@ -1,6 +1,6 @@
 # Hello World Tutorial (Onchain Query with Proof of SQL)
 
-In this tutorial, we will be running a Proof of SQL, onchain query against the table created in the ["Create Table Hello World Tutorial"](../create_hello_world_table/). Proof Of SQL is a cryptographic protocol that allows smart contracts to verify SQL queries.
+In this tutorial, we will be running an onchain query against the table created in the ["Create Table Hello World Tutorial"](../create_hello_world_table/). This query uses Proof of SQL, a cryptographic protocol that gives smart contracts a guarantee of the correctness of the query result.
 
 The major steps we will walk through are
 
@@ -41,7 +41,7 @@ The output is
 }
 ```
 
-We then create a constant in our smart contract with this query plan:
+We then create a constant in our smart contract with this query plan. (That is, using the `proofPlan` and dropping the `0x`.)
 
 ```solidity
 // SELECT NAME FROM TUTORIAL_ABC8D709C80262965344F5240AD123F5CBE51123.HELLO_WORLD WHERE LONGITUDE = 60
@@ -49,7 +49,7 @@ bytes public constant QUERY_PLAN =
     hex"0000000000000001000000000000003d5455544f5249414c5f414243384437303943383032363239363533343446353234304144313233463543424535313132332e48454c4c4f5f574f524c440000000000000002000000000000000000000000000000044e414d4500000007000000000000000000000000000000094c4f4e47495455444500000005000000000000000100000000000000044e414d45000000000000000000000000000000020000000000000000000000010000000100000005000000000000003c0000000000000001000000000000000000000000";
 ```
 
-We also import the `ProofOfSQL` library, which has all the necessary components to run this query.
+We also import the `ProofOfSQL` library, which has all the necessary components to run this query. In particular, we will be using the `QueryRouter` contract to run the query.
 
 ```solidity
 import "../libraries/ProofOfSQL.sol";
@@ -122,29 +122,17 @@ git clone git@github.com:spaceandtimefdn/sxt-chain-examples.git
 cd sxt-chain-examples/contracts
 ```
 
-We import a new `cast` wallet. We will be using the address `0xabc8d709c80262965344f5240ad123f5cbe51123` to deploy and test the contract.
-
-```bash
-cast wallet import --interactive TutorialAccount
-```
-
-We create an `.env` file with the ethereum RPC url that we wish to use. The contents should look like this:
+Now, we deploy the smart contract with `forge`. (This can be first run without `--broadcast` to do a dry run.)
 
 ```
-ETH_RPC_URL=████████████████████████
-```
-
-Finally, we deploy the smart contract with `forge`:
-
-```bash
-forge create HelloWorld --account TutorialAccount --broadcast --verify
+forge create HelloWorld --private-key $PRIVATE_KEY --rpc-url $RPC_URL --broadcast --verify
 ```
 
 Our deployed contract has address `0x051d9FDA993323c1e74f8Ff9Bd22b911774e1D93` and can be found [here](https://etherscan.io/address/0x051d9FDA993323c1e74f8Ff9Bd22b911774e1D93).
 
 ## Step 3: Running the query
 
-Now, to run the query, we must approve spend of 100 SXT for the contract. To do this, we call [`approve`](https://etherscan.io/token/0xe6bfd33f52d82ccb5b37e16d3dd81f9ffdabb195?a=0xabc8d709c80262965344f5240ad123f5cbe51123#writeContract#F1) on the SXT token contract.
+Now, to run the query, we must approve spend of 100 SXT for the contract. To do this, we call [`approve`](https://etherscan.io/token/0xe6bfd33f52d82ccb5b37e16d3dd81f9ffdabb195?a=0xabc8d709c80262965344f5240ad123f5cbe51123#writeContract#F1) on the SXT token contract. Because SXT has 18 decimals, we enter `100000000000000000000`, which is `100e18`.
 
 ![SXT approve](./doc_assets/approve.png)
 
