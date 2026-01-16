@@ -1,4 +1,25 @@
-# Hello World Tutorial (Onchain Query with Proof of SQL)
+# Queries from a Smart Contract (ZK-SQL unchain)
+
+Overview: https://docs.spaceandtime.io/update/docs/zk-sql-via-smart-contracts
+
+Space and Time (SXT Chain) is the first onchain database for the EVM, enabling smart contracts to execute ZK-verified SQL queries against your custom tables on SXT Chain as well as against tables of historical indexed data secured on SXT Chain from other popular chains such as Ethereum, Base, etc.
+
+In short, your smart contract doesn’t execute SQL itself—it submits a precompiled query plan to Space and Time’s QueryRouter (relayer) contract along with a small payment + a callback target. The QueryRouter contract runs the query against your SXT Chain tables, generates a Proof of SQL that attests the result is correct (verified onchain), and then the query result is passed back via your contract’s callback with the verified result bytes. Inside the callback, your contract verifies the caller is the router executor, deserializes the proven table result, and safely uses the returned rows with both cryptographic guarantees that the data matches the SQL query you requested, and cryptographic guarantees that the underlying table(s) are tamperproof.
+
+## Lifecycle of an Onchain Query with Proof of SQL (SXT Chain)
+
+- **Request starts onchain:** A client smart contract calls our QueryRouter contract via requestQuery(...), passing:
+  - the proof plan (hex-encoded query plan generated from SQL via the SXT RPC),
+  - any serialized parameters,
+  - a version field + optional metadata,
+  - a callback target (contract + selector) and gas constraints,
+  - and payment details (amount, refund address, timeout). Payment is typically done by transferring SXT into the client contract and approving the QueryRouter to spend it for that request.
+- **Query is executed offchain, then proven:** Space and Time’s network executes the query against the referenced tables and produces a Proof of SQL that attests the result matches the requested query plan (and inputs).
+- **Router fulfills via a trusted executor callback:** When execution completes, a designated QueryRouter executor calls the client contract’s callback function with the query result payload.
+- **Client contract validates the callback origin:** The callback must defensively check that:
+  - msg.sender is the authorized QueryRouter executor, and
+  - the queryId is one the contract actually requested (e.g., pendingQueries[queryId]).
+- Result is consumed onchain: The callback decodes the returned result bytes into a table-like structure (e.g., deserializing a ProofOfSqlTable result) and then the contract can safely use the returned rows (emit events, update state, trigger additional logic), relying on the cryptographic guarantees provided by Proof of SQL as enforced by the QueryRouter fulfillment path.
 
 In this tutorial, we will be running an onchain query against the table created in the ["Create Table Hello World Tutorial"](../create_hello_world_table/README.md). This query uses Proof of SQL, a cryptographic protocol that gives smart contracts a guarantee of the correctness of the query result.
 
