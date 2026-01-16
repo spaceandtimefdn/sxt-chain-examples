@@ -1,0 +1,15 @@
+name: CI
+on:
+  merge_group: {}
+  pull_request: {}
+  workflow_run:
+    workflows: ["Release"]
+    types: [completed]
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: npm install -g markdown-link-check
+      - run: markdown-link-check -i "contracts/dependencies/,node_modules/" -c markdown-link-check-config.json .
