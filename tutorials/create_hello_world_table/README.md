@@ -31,10 +31,10 @@ Then, we need to install the prerequisite npm packages:
 npm install
 ```
 
-Then, we can make the `hello_world_tutorial` directory our working directory.
+Then, we can make the `tutorials/create_hello_world_table` directory our working directory.
 
 ```bash
-cd hello_world_tutorial
+cd tutorials/create_hello_world_table
 ```
 
 ## Step 3: Creating a table (DDL)
