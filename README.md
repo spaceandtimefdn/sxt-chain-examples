@@ -12,5 +12,4 @@ There are currently two tutorials, both "Hello World" style. We recommend doing 
 ## How-To Guides
 
 - [How to convert between address formats](./how_to/HOW_TO_CONVERT_BETWEEN_ADDRESS_FORMATS.md)
-- [How to fund an account directly](./how_to/HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md)
-- [How To fund an account with Dreamspace Pay](./how_to/HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md)
+- [Fund your wallet's SXT Chain account (gas)](./how_to/HOW_TO_FUND_SXT_CHAIN_ACCOUNT.md)

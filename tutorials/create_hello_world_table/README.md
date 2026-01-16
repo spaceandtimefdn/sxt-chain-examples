@@ -1,4 +1,10 @@
-# Hello World Tutorial (Creating a Table)
+# Create Custom Tables on SXT Chain
+
+[Learn all about custom tables on SXT Chain.](https://docs.spaceandtime.io/update/docs/creating-tables-ddl)
+
+Space and Time (SXT Chain) allows users to create custom tables in which validators store signed data from your own Offchain sources, which remain tamperproof and can be queried directly from EVM smart contracts or your apps via our [Managed DB APIs](https://docs.makeinfinite.com/docs/execute-queries-via-api).
+
+To add your own custom tables, users send a signed transaction to create new cryptographically tamperproof tables secured by SXT Chain and owned by your wallet. The gas used to pay for the table creation (DDL) transaction will debit against your wallet's balance on SXT Chain. Once you've created your table, all inserts to that table will be witnessed and secured cryptographically by SXT Chain validators.
 
 In this tutorial, we will be creating a table on the SXT Chain using an ECDSA wallet.
 The major steps we will walk through are
@@ -12,11 +18,11 @@ The major steps we will walk through are
 
 ## Step 1: Funding a wallet
 
-In order to interact with the SXT Chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["How to Fund an Account Directly"](../../how_to/HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md) or ["How To Fund an Account with Dreamspace Pay"](../../how_to/HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md) for instructions.
+In order to interact with the SXT Chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["Fund your wallet's SXT Chain account (gas)"](../../how_to/HOW_TO_FUND_SXT_CHAIN_ACCOUNT.md).
 
 ## Step 2: Clone this repo
 
-We will be using this repo, which has the scripts that we will be using. So, we clone this repo:
+We will be using the `sxt-chain-examples` repo. We will walk through the example scripts in the repo, which submit transactions via RPC to the SXT Chain. So, we clone this repo:
 
 ```bash
 git clone git@github.com:spaceandtimefdn/sxt-chain-examples.git
