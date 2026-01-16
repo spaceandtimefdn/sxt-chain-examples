@@ -18,7 +18,7 @@ The major steps we will walk through are
 
 ## Step 1: Funding a wallet
 
-In order to interact with the SXT Chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["How to Fund an Account Directly"](../../how_to/HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md) or ["How To Fund an Account with Dreamspace Pay"](../../how_to/HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md) for instructions.
+In order to interact with the SXT Chain, we need compute credits. In this tutorial, we use the wallet address `0xABC8d709C80262965344f5240Ad123f5cBE51123` and funded it with 123 SXT. See ["Fund your wallet's SXT Chain account (gas)"](../../how_to/HOW_TO_FUND_SXT_CHAIN_ACCOUNT.md).
 
 ## Step 2: Clone this repo
 

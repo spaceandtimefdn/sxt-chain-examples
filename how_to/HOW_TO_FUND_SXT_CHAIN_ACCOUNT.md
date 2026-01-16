@@ -8,7 +8,7 @@ You need to fund an SXT Chain account for your wallet with compute credits (add 
 
 ## How to Fund an Account Directly
 
-In order to use the SXT Chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the SXTChainFunding smart contract (`0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199`). Alternatively, see ["How To Fund an Account with Dreamspace Pay"](./HOW_TO_FUND_AN_ACCOUNT_WITH_DSPAY.md).
+In order to use the SXT Chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the SXTChainFunding smart contract (`0xb1bc1d7eb1e6c65d0de909d8b4f27561ef568199`).
 
 ### Step 1: Approve Spend
 
@@ -32,7 +32,7 @@ Call the [`fundAddress`](https://etherscan.io/address/0xb1bc1d7eb1e6c65d0de909d8
 
 ## How To Fund an Account with Dreamspace Pay
 
-In order to use the SXT Chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the Dreamspace Pay smart contract (`0x880a88bF31800aB4B48ACd46220D9BA6898Bb419`). Alternatively, see ["How to Fund an Account Directly"](./HOW_TO_FUND_AN_ACCOUNT_DIRECTLY.md).
+In order to use the SXT Chain, compute credits are required. This how-to walks through the steps to fund an account with compute credits using the Dreamspace Pay smart contract (`0x880a88bF31800aB4B48ACd46220D9BA6898Bb419`).
 
 Dreamspace Pay supports funding with many different tokens. In this example, we will use `USDC` (`0xdAC17F958D2ee523a2206206994597C13D831ec7`).
 
