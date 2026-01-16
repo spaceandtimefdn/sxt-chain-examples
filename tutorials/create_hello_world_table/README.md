@@ -1,4 +1,10 @@
-# Hello World Tutorial (Creating a Table)
+# Create Custom Tables on SXT Chain
+
+[Learn all about custom tables on SXT Chain.](https://docs.spaceandtime.io/update/docs/creating-tables-ddl)
+
+Space and Time (SXT Chain) allows users to create custom tables in which validators store signed data from your own Offchain sources, which remain tamperproof and can be queried directly from EVM smart contracts or your apps via our [Managed DB APIs](https://docs.makeinfinite.com/docs/execute-queries-via-api).
+
+To add your own custom tables, users send a signed transaction to create new cryptographically tamperproof tables secured by SXT Chain and owned by your wallet. The gas used to pay for the table creation (DDL) transaction will debit against your wallet's balance on SXT Chain. Once you've created your table, all inserts to that table will be witnessed and secured cryptographically by SXT Chain validators.
 
 In this tutorial, we will be creating a table on the SXT Chain using an ECDSA wallet.
 The major steps we will walk through are
@@ -16,7 +22,7 @@ In order to interact with the SXT Chain, we need compute credits. In this tutori
 
 ## Step 2: Clone this repo
 
-We will be using this repo, which has the scripts that we will be using. So, we clone this repo:
+We will be using the `sxt-chain-examples` repo. We will walk through the example scripts in the repo, which submit transactions via RPC to the SXT Chain. So, we clone this repo:
 
 ```bash
 git clone git@github.com:spaceandtimefdn/sxt-chain-examples.git
