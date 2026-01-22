@@ -1,0 +1,53 @@
+name: Sync to ReadMe
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'tutorials/**/*.md'
+      - 'how_to/**/*.md'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install rdme CLI
+        run: npm install -g rdme
+
+      - name: Sync docs to ReadMe
+        env:
+          README_API_KEY: ${{ secrets.README_API_KEY }}
+        run: |
+          # Sync the 3 specific documentation pages to ReadMe (v1.0)
+          
+          # 1. Fund SXT Chain Account guide
+          # → https://docs.spaceandtime.io/docs/fund-your-wallets-sxt-chain-account-gas-1
+          rdme docs how_to/HOW_TO_FUND_SXT_CHAIN_ACCOUNT.md \
+            --key=$README_API_KEY \
+            --version=v1.0 \
+            --slug=fund-your-wallets-sxt-chain-account-gas-1
+          
+          # 2. Creating Tables (DDL) tutorial
+          # → https://docs.spaceandtime.io/docs/creating-tables-ddl-1
+          rdme docs tutorials/create_hello_world_table/README.md \
+            --key=$README_API_KEY \
+            --version=v1.0 \
+            --slug=creating-tables-ddl-1
+          
+          # 3. Queries from a Smart Contract (ZK-SQL Onchain)
+          # → https://docs.spaceandtime.io/docs/queries-from-a-smart-contract-zk-sql-onchain
+          rdme docs tutorials/onchain_hello_world_query/README.md \
+            --key=$README_API_KEY \
+            --version=v1.0 \
+            --slug=queries-from-a-smart-contract-zk-sql-onchain
+
